@@ -32,9 +32,4 @@ public class ConexionBDD {
 		}
 
 	}
-
-	public static void main(String[] args) {
-		System.out.println(leerPropiedad("propiedad3"));
-	}
-
 }
