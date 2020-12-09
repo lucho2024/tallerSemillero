@@ -17,7 +17,8 @@ public class ConexionBDD {
 		Properties p = new Properties();
 		try {
 			File f = new File("conexion.properties");
-			p.load(new FileReader(f));
+			System.out.println("ruta:"+f.getAbsoluteFile());
+			p.load(new FileReader(f.getAbsolutePath()));
 
 			if (p.getProperty(propiedad) != null) {
 				return p.getProperty(propiedad);
