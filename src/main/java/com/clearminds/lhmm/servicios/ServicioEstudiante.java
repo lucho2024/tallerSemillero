@@ -2,7 +2,9 @@ package com.clearminds.lhmm.servicios;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
+import com.clearmind.lhmm.utils.DateUtil;
 import com.clearminds.lhmm.bdd.ConexionBDD;
 import com.clearminds.lhmm.dtos.Estudiante;
 import com.clearminds.lhmm.excepciones.BDDException;
@@ -20,8 +22,9 @@ public class ServicioEstudiante extends ServicioBase {
 		try {
 			stmt= ConexionBDD.obtenerConexion().createStatement();
 			
-			String sql ="insert into estudiantes(nombre,apellido,edad)"
-					+" values('"+estudiante.getNombre()+"','"+estudiante.getApellido()+"',"+estudiante.getEdad()+")";
+			String sql ="insert into estudiantes(nombre,apellido,edad,fecha_modificacion)"
+					+" values('"+estudiante.getNombre()+"','"+estudiante.getApellido()+"',"+estudiante.getEdad()+",'"
+					+DateUtil.convertirFecha(new Date())+"')";
 			System.out.println("Script: "+sql);
 			
 			stmt.executeUpdate(sql);
@@ -47,7 +50,8 @@ public class ServicioEstudiante extends ServicioBase {
 			
 			String sql ="update estudiantes set nombre='"+estudiante.getNombre()+"',"
 					+ "apellido='"+estudiante.getApellido()+
-					"' ,edad="+estudiante.getEdad()+" where id="+estudiante.getId()+"";
+					"' ,edad="+estudiante.getEdad()+",fecha_modificacion='"+DateUtil.convertirFecha(new Date())+
+					"' where id="+estudiante.getId()+"";
 					
 			System.out.println("Script: "+sql);
 			
