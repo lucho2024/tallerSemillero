@@ -12,7 +12,7 @@ public class TestActualizar {
 		ServicioEstudiante srvEstudiante = new ServicioEstudiante();
 		
 		try {
-			srvEstudiante.actualizarEstudiante(new Estudiante("pedro","navaja",3));
+			srvEstudiante.actualizarEstudiante(new Estudiante("pedro","navaja",3,20));
 		} catch (BDDException e) {
 			e.printStackTrace();
 			e.getMessage();
